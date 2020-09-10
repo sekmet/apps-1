@@ -155,7 +155,7 @@ export default React.memo(styled(Body)`
     }
 
     &:nth-child(even) {
-      background: rgba(255, 254, 253, 1);
+      background: white;
     }
 
     &:first-child {
