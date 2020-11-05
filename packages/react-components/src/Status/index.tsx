@@ -84,7 +84,9 @@ function renderStatus ({ account, action, id, message, removeItem, status }: Que
           </div>
           <div className='desc'>
             <div className='header'>
-              {action}
+              {Array.isArray(action)
+                ? action.map((action, index) => <div key={index}>{action}</div>)
+                : action}
             </div>
             {account && (
               <AddressMini value={account} />
@@ -211,6 +213,10 @@ export default React.memo(styled(Status)`
 
   .dismiss {
     margin-bottom: 0.25rem;
+
+    .ui--Button {
+      border: 1px solid white;
+    }
   }
 
   .item {
@@ -234,7 +240,7 @@ export default React.memo(styled(Status)`
         padding: 0.5rem 1rem;
 
         .status {
-          font-weight: 700;
+          font-weight: 400;
         }
 
         .ui--AddressMini {

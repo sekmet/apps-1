@@ -1,11 +1,13 @@
 // Copyright 2017-2020 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import { ThemeProps } from '../types';
+
 import { css } from 'styled-components';
 
 export default css`
   .ui--output {
-    background: #fefefe;
+    background: ${({ theme }: ThemeProps) => theme.bgInput};
     border-radius: 4px;
     border: 1px dashed #eee;
     box-sizing: border-box;
@@ -17,7 +19,7 @@ export default css`
     word-break: break-all;
 
     &.error {
-      background: #fff6f6;
+      background: ${({ theme }: ThemeProps) => theme.bgInputError};
       border-color: #e0b4b4;
     }
 
@@ -47,6 +49,10 @@ export default css`
     padding-left: 0.3em;
     color: #2e86ab  !important;
     background: none  !important;
+  }
+
+  button.ui--Button {
+    font-family: ${({ theme }: ThemeProps) => theme.fontSans};
   }
 
   .editable {
